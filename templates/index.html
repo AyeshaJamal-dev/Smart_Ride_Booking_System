@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>TravaGo Ride</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+TravaGo Ride
+</div>
+
+<ul class="nav-links">
+
+<li><a href="/">Home</a></li>
+
+<li><a href="/services">Services</a></li>
+
+<li><a href="/contact">Contact Us</a></li>
+
+<li class="dropdown">
+
+<a href="#">Login</a>
+
+<ul class="dropdown-menu">
+
+<li><a href="/user-login">User Login</a></li>
+
+<li><a href="/driver-login">Driver Login</a></li>
+
+</ul>
+
+</li>
+
+<li class="dropdown">
+
+<a href="#">Signup</a>
+
+<ul class="dropdown-menu">
+
+<li><a href="/user-signup">User Signup</a></li>
+
+<li><a href="/driver-signup">Driver Signup</a></li>
+
+</ul>
+
+</li>
+
+<li>
+
+<button id="themeToggle"
+class="dark-btn">
+
+🌙
+
+</button>
+
+</li>
+
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="overlay">
+
+<div class="hero-content">
+
+<h1>
+Travel Smart With TravaGo
+</h1>
+
+<p>
+Comfort • Safety • Reliability
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="ride-section">
+
+<h1 class="section-title">
+Our Premium Rides
+</h1>
+
+<div class="ride-grid">
+
+<div class="ride-card">
+
+<img src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png">
+
+<h2>Bike Ride</h2>
+
+<p>
+Affordable and fast rides.
+</p>
+
+</div>
+
+<div class="ride-card">
+
+<img src="https://cdn-icons-png.flaticon.com/512/744/744465.png">
+
+<h2>Mini Car</h2>
+
+<p>
+Comfortable rides for daily travel.
+</p>
+
+</div>
+
+<div class="ride-card">
+
+<img src="https://cdn-icons-png.flaticon.com/512/741/741407.png">
+
+<h2>Luxury Car</h2>
+
+<p>
+Premium luxury rides.
+</p>
+
+</div>
+
+<div class="ride-card">
+
+<img src="https://cdn-icons-png.flaticon.com/512/3082/3082037.png">
+
+<h2>Cargo Delivery</h2>
+
+<p>
+Fast cargo transportation.
+</p>
+
+</div>
+
+<div class="ride-card">
+
+<img src="https://cdn-icons-png.flaticon.com/512/854/854878.png">
+
+<h2>Intercity Travel</h2>
+
+<p>
+Travel safely between cities.
+</p>
+
+</div>
+
+<div class="ride-card">
+
+<img src="https://cdn-icons-png.flaticon.com/512/483/483361.png">
+
+<h2>Airport Pickup</h2>
+
+<p>
+Reliable airport transportation.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="map-section">
+
+<div class="tracking-container">
+
+<div class="tracking-text">
+
+<h1>
+Live Ride Tracking
+</h1>
+
+<p>
+Track your ride in real-time with smart GPS technology.
+Safe, fast, and reliable transportation with TravaGo Ride.
+</p>
+
+<button onclick="getLocation()"
+class="location-btn">
+
+📍 Detect My Live Location
+
+</button>
+
+<h3 id="locationStatus">
+
+Click the button to load your location.
+
+</h3>
+
+</div>
+
+<div class="tracking-map">
+
+<iframe
+id="mapFrame"
+src="https://maps.google.com/maps?q=Lahore&z=12&output=embed"
+allowfullscreen>
+</iframe>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="booking-section">
+
+<h1>
+Book Your Ride
+</h1>
+<form class="booking-box"
+onsubmit="confirmRide(event)">
+
+<input
+type="text"
+id="pickup"
+placeholder="Pickup Location"
+required>
+
+<input
+type="text"
+id="dropoff"
+placeholder="Dropoff Location"
+required>
+
+<select
+id="rideType"
+onchange="handleRideChange()">
+
+<option>Bike</option>
+<option>Mini Car</option>
+<option>Luxury Car</option>
+<option>Cargo Delivery</option>
+<option>Business Trip</option>
+<option>Family Trip</option>
+
+</select>
+
+<!-- CARGO BOX -->
+
+<div id="cargoBox" style="display:none;">
+
+<input
+type="text"
+id="materialType"
+placeholder="Material Type">
+
+<select
+id="sensitivityType"
+onchange="fillMaterialType()">
+
+<option value="">
+Choose Material Type
+</option>
+
+<option value="Delicate">
+Delicate
+</option>
+
+<option value="Sensitive">
+Sensitive
+</option>
+
+<option value="Hard">
+Hard
+</option>
+
+</select>
+
+</div>
+
+<!-- TRIP BOX -->
+
+<div id="tripBox" style="display:none;">
+
+<input
+type="number"
+id="tripDays"
+placeholder="Number Of Days">
+
+<input
+type="number"
+id="tripPeople"
+placeholder="Number Of People">
+
+</div>
+
+<input
+type="number"
+id="fareInput"
+placeholder="Your Budget">
+
+<button
+type="button"
+onclick="suggestFare()">
+
+Get Fare Suggestion
+
+</button>
+
+<div id="fareResult"></div>
+
+<button type="submit">
+
+Confirm Booking
+
+</button>
+
+</form>
+
+</section>
+<section class="how-to-use">
+
+<div class="how-container">
+
+<div class="girl-animation">
+
+<lottie-player
+src="https://assets2.lottiefiles.com/packages/lf20_xyadoh9h.json"
+background="transparent"
+speed="1"
+style="width: 450px; height: 450px;"
+loop
+autoplay>
+</lottie-player>
+
+</div>
+<div class="how-text">
+
+<h1>
+How To Use TravaGo Ride
+</h1>
+
+<ul>
+
+<li>
+📍 Select your ride service
+</li>
+
+<li>
+🚕 Enter pickup and drop location
+</li>
+
+<li>
+💳 Get fare estimation
+</li>
+
+<li>
+✅ Confirm your booking instantly
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+This website is made by Hamza and Ayesha
+</p>
+
+</footer>
+
+<script src="{{ url_for('static', filename='js/booking.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/darkmode.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+</body>
+</html>

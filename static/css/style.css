@@ -1,0 +1,724 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#eef7ea;
+overflow-x:hidden;
+color:#163313;
+}
+
+/* NAVBAR */
+
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+background:#276221;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+z-index:1000;
+}
+
+.logo{
+font-size:32px;
+font-weight:bold;
+color:white;
+}
+
+.nav-links{
+display:flex;
+list-style:none;
+gap:30px;
+align-items:center;
+}
+
+.nav-links li{
+position:relative;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-size:18px;
+transition:0.3s;
+padding:10px;
+display:block;
+}
+
+.nav-links a:hover{
+color:#c8ffb0;
+}
+
+/* DROPDOWN */
+
+.dropdown-menu{
+display:none;
+position:absolute;
+top:45px;
+left:0;
+background:white;
+border-radius:10px;
+min-width:220px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+padding:10px 0;
+}
+
+.dropdown-menu li{
+width:100%;
+}
+
+.dropdown-menu a{
+color:#163313;
+padding:12px 20px;
+}
+
+.dropdown-menu a:hover{
+background:#eef7ea;
+color:#276221;
+}
+
+.dropdown:hover .dropdown-menu{
+display:block;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+background-image:url("/static/images/hero.jpg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+position:relative;
+}
+
+.overlay{
+background:rgba(0,0,0,0.6);
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+padding-top:80px;
+text-align:center;
+}
+
+.hero-content h1{
+font-size:75px;
+color:white;
+margin-bottom:20px;
+animation:fadeIn 1.5s ease;
+}
+
+.hero-content p{
+font-size:28px;
+color:#d8ffd0;
+}
+
+/* RIDE SECTION */
+
+.ride-section{
+padding:100px 60px;
+text-align:center;
+}
+
+.section-title{
+font-size:50px;
+margin-bottom:60px;
+}
+
+.ride-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.ride-card{
+background:white;
+padding:35px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,0,0,0.1);
+transition:0.5s;
+cursor:pointer;
+animation:floatCard 3s ease-in-out infinite;
+}
+
+.ride-card:hover{
+transform:translateY(-12px);
+background:#276221;
+color:white;
+}
+
+.ride-card img{
+width:120px;
+margin-bottom:20px;
+transition:0.5s;
+}
+
+.ride-card:hover img{
+transform:translateX(15px);
+}
+
+.ride-card h2{
+margin-bottom:15px;
+}
+
+/* BOOKING */
+
+.booking-section{
+padding:100px 20px;
+background:#dff1d7;
+text-align:center;
+}
+
+.booking-box{
+background:white;
+padding:40px;
+border-radius:20px;
+max-width:500px;
+margin:auto;
+display:grid;
+gap:20px;
+box-shadow:0 0 20px rgba(0,0,0,0.1);
+}
+
+.booking-box input,
+.booking-box select{
+padding:15px;
+border:1px solid #ccc;
+border-radius:10px;
+}
+
+.booking-box button{
+padding:15px;
+background:#276221;
+color:white;
+border:none;
+border-radius:10px;
+font-size:18px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.booking-box button:hover{
+background:#3d9134;
+}
+
+/* FORM PAGES */
+
+.form-page{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(
+135deg,
+#dff1d7,
+#eef7ea
+);
+padding:40px;
+}
+
+.modern-form{
+background:white;
+padding:40px;
+border-radius:20px;
+width:420px;
+display:flex;
+flex-direction:column;
+gap:20px;
+box-shadow:0 0 20px rgba(0,0,0,0.1);
+animation:fadeIn 1.5s ease;
+}
+
+.modern-form h1{
+text-align:center;
+}
+
+.modern-form input,
+.modern-form textarea{
+padding:15px;
+border:1px solid #ccc;
+border-radius:10px;
+}
+
+.modern-form button{
+padding:15px;
+background:#276221;
+color:white;
+border:none;
+border-radius:10px;
+font-size:18px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.modern-form button:hover{
+background:#3d9134;
+}
+
+/* SERVICES */
+
+.services-page{
+padding:140px 60px;
+text-align:center;
+}
+
+.services-grid{
+margin-top:60px;
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.service-card{
+background:white;
+padding:35px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,0,0,0.1);
+transition:0.5s;
+}
+
+.service-card:hover{
+transform:translateY(-10px);
+background:#276221;
+color:white;
+}
+
+.service-card img{
+width:100px;
+margin-bottom:20px;
+}
+
+/* FOOTER */
+
+footer{
+background:#276221;
+padding:25px;
+text-align:center;
+color:white;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@keyframes floatCard{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+padding:20px;
+}
+
+.hero-content h1{
+font-size:45px;
+}
+
+}
+.map-section{
+padding:100px 60px;
+background:#dff1d7;
+}
+
+.tracking-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+background:white;
+padding:50px;
+border-radius:25px;
+box-shadow:0 0 25px rgba(0,0,0,0.1);
+}
+
+.tracking-text h1{
+font-size:60px;
+color:#163313;
+margin-bottom:20px;
+}
+
+.tracking-text p{
+font-size:20px;
+line-height:1.8;
+color:#444;
+margin-bottom:30px;
+}
+
+.location-btn{
+padding:18px 30px;
+background:#276221;
+color:white;
+border:none;
+border-radius:12px;
+font-size:18px;
+cursor:pointer;
+transition:0.4s;
+}
+
+.location-btn:hover{
+background:#163313;
+transform:translateY(-5px);
+}
+
+#locationStatus{
+margin-top:25px;
+font-size:18px;
+color:#276221;
+}
+
+.tracking-map iframe{
+width:100%;
+height:450px;
+border:none;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,0,0,0.1);
+}
+
+@media(max-width:900px){
+
+.tracking-container{
+grid-template-columns:1fr;
+}
+
+.tracking-text h1{
+font-size:42px;
+}
+
+}
+.dark-btn{
+width:50px;
+height:50px;
+border:none;
+border-radius:50%;
+background:white;
+font-size:22px;
+cursor:pointer;
+transition:0.4s;
+}
+
+.dark-btn:hover{
+transform:rotate(180deg) scale(1.1);
+}
+
+.dark-mode{
+background:#121212;
+color:white;
+}
+
+.dark-mode .ride-card,
+.dark-mode .service-card,
+.dark-mode .booking-box,
+.dark-mode .modern-form,
+.dark-mode .tracking-container{
+background:#1f1f1f;
+color:white;
+}
+
+.dark-mode .booking-section,
+.dark-mode .map-section{
+background:#181818;
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select{
+background:#2a2a2a;
+color:white;
+border:1px solid #555;
+}
+.contact-section{
+padding:120px 60px;
+background:#dff1d7;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.contact-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+background:white;
+padding:50px;
+border-radius:25px;
+box-shadow:0 0 25px rgba(0,0,0,0.1);
+width:100%;
+max-width:1200px;
+}
+
+.contact-left h1{
+font-size:60px;
+margin-bottom:20px;
+color:#163313;
+}
+
+.contact-left p{
+font-size:20px;
+line-height:1.8;
+margin-bottom:40px;
+}
+
+.contact-info h3{
+margin-bottom:20px;
+font-size:22px;
+}
+
+.contact-form{
+display:grid;
+gap:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+padding:18px;
+border-radius:12px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+.contact-form button{
+padding:18px;
+background:#276221;
+color:white;
+border:none;
+border-radius:12px;
+font-size:18px;
+cursor:pointer;
+transition:0.4s;
+}
+
+.contact-form button:hover{
+background:#163313;
+transform:translateY(-5px);
+}
+
+@media(max-width:900px){
+
+.contact-container{
+grid-template-columns:1fr;
+}
+
+.contact-left h1{
+font-size:42px;
+}
+
+}
+.fare-box{
+background:#276221;
+color:white;
+padding:15px;
+border-radius:12px;
+margin-top:20px;
+font-size:20px;
+}
+
+.confirm-section{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#dff1d7;
+padding:40px;
+}
+
+.confirm-box{
+background:white;
+padding:50px;
+border-radius:25px;
+max-width:600px;
+width:100%;
+text-align:center;
+box-shadow:0 0 25px rgba(0,0,0,0.1);
+}
+
+.confirm-box h1{
+font-size:50px;
+color:#276221;
+margin-bottom:30px;
+}
+
+.confirm-box h2{
+margin-bottom:20px;
+}
+
+.confirm-box p{
+font-size:20px;
+margin-bottom:15px;
+}
+
+.home-btn{
+display:inline-block;
+margin-top:30px;
+padding:15px 30px;
+background:#276221;
+color:white;
+text-decoration:none;
+border-radius:12px;
+transition:0.4s;
+}
+
+.home-btn:hover{
+background:#163313;
+transform:translateY(-5px);
+}
+
+.ride-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+@media(max-width:900px){
+
+.ride-grid{
+grid-template-columns:1fr;
+}
+
+}
+.how-to-use{
+padding:100px;
+background:#eef7ea;
+}
+
+.how-container{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:50px;
+}
+
+.how-img{
+width:400px;
+border-radius:20px;
+}
+
+.how-text h1{
+font-size:40px;
+margin-bottom:20px;
+color:#276221;
+}
+
+.how-text ul{
+list-style:none;
+font-size:20px;
+line-height:2;
+}
+
+@media(max-width:900px){
+.how-container{
+flex-direction:column;
+text-align:center;
+}
+}
+/* ---------------- NAVBAR FIX ---------------- */
+
+.navbar{
+z-index:9999;
+}
+
+.dropdown{
+position:relative;
+}
+
+.dropdown-menu{
+position:absolute;
+top:40px;
+left:0;
+background:white;
+border-radius:12px;
+min-width:220px;
+display:none;
+padding:10px 0;
+box-shadow:0 10px 20px rgba(0,0,0,0.1);
+z-index:9999;
+}
+
+.dropdown-menu li{
+list-style:none;
+padding:12px 20px;
+}
+
+.dropdown-menu li a{
+color:#163313;
+text-decoration:none;
+display:block;
+}
+
+.dropdown:hover .dropdown-menu{
+display:block;
+}
+
+/* ---------------- HOW TO USE ---------------- */
+
+.how-to-use{
+padding:100px 60px;
+background:#eef7ea;
+}
+
+.how-container{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:60px;
+}
+
+.girl-animation{
+display:flex;
+justify-content:center;
+align-items:center;
+animation:floatGirl 4s ease-in-out infinite;
+}
+
+@keyframes floatGirl{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-20px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}

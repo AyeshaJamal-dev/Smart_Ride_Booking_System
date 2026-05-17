@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Ride Confirmed</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<section class="confirm-section">
+
+<div class="confirm-box">
+
+<h1>
+✅ Ride Confirmed
+</h1>
+
+<h2>
+Driver Details
+</h2>
+
+<p>
+Driver Name:
+<strong>Ali Khan</strong>
+</p>
+
+<p>
+Phone Number:
+<strong>+92 321 9876543</strong>
+</p>
+
+<p>
+Ride Type:
+<strong>{{ ride }}</strong>
+</p>
+
+<p>
+Pickup Location:
+<strong>{{ pickup }}</strong>
+</p>
+
+<p>
+Dropoff Location:
+<strong>{{ dropoff }}</strong>
+</p>
+
+<p>
+Driver will arrive in
+<strong>10 minutes</strong>
+</p>
+
+<a href="/" class="home-btn">
+Back To Home
+</a>
+
+</div>
+
+</section>
+
+</body>
+</html>

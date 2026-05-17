@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ride History</title>
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<section class="services-page">
+<h1 class="section-title">Ride History</h1>
+<div class="services-grid">
+{% for booking in bookings %}
+<div class="service-card">
+<h2>{{ booking.ride }}</h2>
+<p>Pickup: {{ booking.pickup }}</p>
+<p>Dropoff: {{ booking.dropoff }}</p>
+</div>
+{% endfor %}
+</div>
+</section>
+</body>
+</html>
